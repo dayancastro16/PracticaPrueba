@@ -44,6 +44,36 @@
     </div>
   </nav>
 
+
+  <!--body weather-->
+  <div id="peli"></div>
+  <!--Weather-->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+  <script>
+    const settings = {
+      async: true,
+      crossDomain: true,
+      url: 'https://yahoo-weather5.p.rapidapi.com/weather?location=santiago%2C%20chile&format=json&u=c',
+      method: 'GET',
+      headers: {
+        'X-RapidAPI-Key': 'bf5ae95aadmsh18eed21f83a95ffp1d4473jsnd261ebe87607',
+        'X-RapidAPI-Host': 'yahoo-weather5.p.rapidapi.com'
+      }
+    };
+    
+    $.ajax(settings).done(function (response) {
+      console.log(response);
+      console.log(response.forecasts)
+      $("#peli").append("<h1>"+response.location.city+", "+response.location.country+"</h1>");
+      //$("#peli").append("<h1>"+response.forecasts+"</h1>");
+
+      $.each(response.forecasts, function(i, item){
+        $("#peli").append("<p>"+"Dia: "+item.day+" | "+"minima: "+item.low+" | "+"Maxima:"+item.high+" | "+"Text: "+item.text+"</p>");
+        
+       });
+    });
+  </script>
     
     
 </body>

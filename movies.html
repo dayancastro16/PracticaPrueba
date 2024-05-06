@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="peli"></div>
+
+    
+
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+     <script>
+        const settings = {
+            async: true,
+            crossDomain: true,
+            url: 'https://imdb-top-100-movies.p.rapidapi.com/',
+            method: 'GET',
+            headers: {
+                'X-RapidAPI-Key': 'bf5ae95aadmsh18eed21f83a95ffp1d4473jsnd261ebe87607',
+                'X-RapidAPI-Host': 'imdb-top-100-movies.p.rapidapi.com'
+            }
+        };
+        
+        $.ajax(settings).done(function (response) {
+            console.log(response);
+            console.log(response[12].title);
+            $.each(response, function(i, item){
+                $("#peli").append("<h1>"+item.rank+"  "+item.title+"</h1>");
+            })
+
+            
+           // $("#peli").append("<h1>"+response[12].title+"</h1>");
+            
+        });
+    </script>
+
+
+    <!--<script>//billboard
+        const settings = {
+            async: true,
+            crossDomain: true,
+            url: 'https://billboard2.p.rapidapi.com/billboard_global_200?date=2020-09-19',
+            method: 'GET',
+            headers: {
+                'X-RapidAPI-Key': 'bf5ae95aadmsh18eed21f83a95ffp1d4473jsnd261ebe87607',
+                'X-RapidAPI-Host': 'billboard2.p.rapidapi.com'
+            }
+        };
+        
+        $.ajax(settings).done(function (response) {
+            console.log(response);
+        });
+    </script>-->
+
+    <!--<script>
+        const settings = {
+            async: true,
+            crossDomain: true,
+            url: 'https://chinese-food-db.p.rapidapi.com/5',
+            method: 'GET',
+            headers: {
+                'X-RapidAPI-Key': 'bf5ae95aadmsh18eed21f83a95ffp1d4473jsnd261ebe87607',
+                'X-RapidAPI-Host': 'chinese-food-db.p.rapidapi.com'
+            }
+        };
+        
+        $.ajax(settings).done(function (response) {
+            console.log(response);
+            console.log(response.description);
+        });
+    </script>-->
+    
+</body>
+</html>
