@@ -50,7 +50,7 @@
   <!--Weather-->
   <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
-  <script>
+  <!--<script>
     const settings = {
       async: true,
       crossDomain: true,
@@ -73,8 +73,24 @@
         
        });
     });
-  </script>
+  </script>-->
     
+  <script>
+    const settings = {
+      async: true,
+      crossDomain: true,
+      url: 'https://apidojo-yahoo-finance-v1.p.rapidapi.com/auto-complete?q=tesla&region=US',
+      method: 'GET',
+      headers: {
+        'X-RapidAPI-Key': 'bf5ae95aadmsh18eed21f83a95ffp1d4473jsnd261ebe87607',
+        'X-RapidAPI-Host': 'apidojo-yahoo-finance-v1.p.rapidapi.com'
+      }
+    };
+    
+    $.ajax(settings).done(function (response) {
+      console.log(response);
+    });
+  </script>
     
 </body>
 </html>
